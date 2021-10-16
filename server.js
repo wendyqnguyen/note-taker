@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-
+const PORT = process.env.PORT || 3002;
 const { notes } = require('./db');
 
 function filterByQuery(query, notesArray) {
@@ -26,6 +26,6 @@ app.get('/api/notes', (req, res) => {
   res.json(results);
 });
 
-app.listen(3002, () => {
-    console.log(`API server now on port 3002!`);
+app.listen(PORT, () => {
+    console.log(`API server now on ${PORT}!`);
   });
