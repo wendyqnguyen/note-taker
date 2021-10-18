@@ -1,30 +1,13 @@
 const express = require('express');
 const app = express();
-const PORT = process.env.PORT || 3002;
-const { notes } = require('./db');
-
-function filterByQuery(query, notesArray) {
-  let filteredResults = notesArray;
-  if (query.id) {
-    filteredResults = filteredResults.filter(note => note.id === query.id);
-  }
-  if (query.title) {
-    filteredResults = filteredResults.filter(note => note.title === query.title);
-  }
-  if (query.text) {
-    filteredResults = filteredResults.filter(note => note.text === query.text);
-  }
-  return filteredResults;
-}
-
-app.get('/api/notes', (req, res) => {
- 
-  let results = notes;
-  if (req.query) {
-    results = filterByQuery(req.query, results);
-  }
-  res.json(results);
-});
+const PORT = process.env.PORT || 3003;
+const apiRoutes = require('./routes/apiRoutes');
+const htmlRoutes = require('./routes/htmlRoutes');
+app.use(express.urlencoded({extended:true}));
+app.use(express.json());
+app.use(express.static('public'));
+app.use('/api', apiRoutes);
+app.use('/', htmlRoutes);
 
 app.listen(PORT, () => {
     console.log(`API server now on ${PORT}!`);
