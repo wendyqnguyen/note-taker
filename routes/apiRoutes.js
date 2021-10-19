@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const router = require('express').Router();
 const { notes } = require('../db/db');
+const uniqid = require('uniqid');
 
 function filterByQuery(query, notesArray) {
     let filteredResults = notesArray;
@@ -45,8 +46,17 @@ function createNewNote(body, notesArray) {
   }
 
   function deleteNote(id, notesArray) {
-    notesArray.splice(id, 1);
-    console.log(`notesArray: ${JSON.stringify(notesArray)}`);
+    let targetNoteLocation;
+    //look for the note that matches the target id
+    for(i=0; i< notesArray.length; ++i){
+      if(notesArray[i].id === id){
+        targetNoteLocation = i;
+        break;
+      }
+    }
+    //remove target note
+    notesArray.splice(targetNoteLocation, 1);
+    //write updated array to db file
     fs.writeFileSync(
       path.join(__dirname, '../db/db.json'),
       JSON.stringify({ notes: notesArray }, null, 2)
@@ -73,8 +83,8 @@ router.get('/notes', (req, res) => {
 });
 
 router.post('/notes', (req, res) => {
-    // set id based on what the next index of the array will be
-    req.body.id = notes.length.toString();
+    // call uniqid to generate unique id
+    req.body.id = uniqid();
     console.log(`req.body = ${req.body}`);
 
     // if any data in req.body is incorrect, send 400 error back
