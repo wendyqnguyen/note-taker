@@ -1,29 +1,39 @@
 {
-    "notes": [
+  "notes": [
     {
-    "id": "0",
-    "title": "Call Bank on Friday",
-    "text": "Call the bank on Friday to update account information"
+      "id": "0",
+      "title": "Call Bank on Friday",
+      "text": "Call the bank on Friday to update account information"
     },
     {
-    "id": "1",
-    "title": "Reschedule delivery",
-    "text": "Contact shipping company to reschedule supples delivery"
+      "id": "1",
+      "title": "Reschedule delivery",
+      "text": "Contact shipping company to reschedule supples delivery"
     },
     {
-    "id": "2",
-    "title": "Finish payroll",
-    "text": "Wrap up monthly payroll and send files to accountant for review"
+      "id": "2",
+      "title": "Finish payroll",
+      "text": "Wrap up monthly payroll and send files to accountant for review"
     },
     {
-    "id": "3",
-    "title": "Checkin with client",
-    "text": "Call new client to checkin and setup lunch meeting"
+      "id": "3",
+      "title": "Checkin with client",
+      "text": "Call new client to checkin and setup lunch meeting"
     },
     {
-    "id": "4",
-    "title": "Client lunch on Thursday",
-    "text": "Take new client to lunch"
+      "id": "4",
+      "title": "Client lunch on Thursday",
+      "text": "Take new client to lunch"
+    },
+    {
+      "title": "Ny new note",
+      "text": "No some stuff",
+      "id": "5"
+    },
+    {
+      "title": "Reorganize files",
+      "text": "Re org archived files with new system",
+      "id": "6"
     }
-    ]
-    }
+  ]
+}
