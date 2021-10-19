@@ -19,6 +19,7 @@ Note Taker v1
 Team Profile Generator was created to write and save notes. This application uses an Express.js back end and saves and retrieves note data from a JSON file.
 
 Heroku Link: https://wqn-notetaker.herokuapp.com/
+
 GitHub Link: https://github.com/wendyqnguyen/note-taker
 
 <p align="center"><img src="screenshot.jpeg"></p>
