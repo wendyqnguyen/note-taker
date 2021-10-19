@@ -6,11 +6,6 @@
       "text": "Call the bank on Friday to update account information"
     },
     {
-      "id": "1",
-      "title": "Reschedule delivery",
-      "text": "Contact shipping company to reschedule supples delivery"
-    },
-    {
       "id": "2",
       "title": "Finish payroll",
       "text": "Wrap up monthly payroll and send files to accountant for review"

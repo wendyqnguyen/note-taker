@@ -44,15 +44,24 @@ function createNewNote(body, notesArray) {
     return true;
   }
 
+  function deleteNote(id, notesArray) {
+    notesArray.splice(id, 1);
+    console.log(`notesArray: ${JSON.stringify(notesArray)}`);
+    fs.writeFileSync(
+      path.join(__dirname, '../db/db.json'),
+      JSON.stringify({ notes: notesArray }, null, 2)
+    );
+  }
+
 //routes
 
 router.get('/notes/:id', (req, res) => {
-    const result = findById(req.params.id, notes);
-    if (result) {
-      res.json(result);
-    } else {
-      res.send(404);
-    }
+  const result = findById(req.params.id, notes);
+  if (result) {
+    res.json(result);
+  } else {
+    res.send(404);
+  }
   });
 
 router.get('/notes', (req, res) => {
@@ -77,5 +86,15 @@ router.post('/notes', (req, res) => {
         res.json(note);
     }
 });
+
+router.delete('/notes/:id', function (req, res) {
+  const result = findById(req.params.id, notes);
+  if (result) {
+    deleteNote(req.params.id, notes);
+    res.json(result);
+  } else {
+    res.send(404);
+  }
+})
 
 module.exports = router;
